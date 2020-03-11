@@ -4,7 +4,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -42,9 +44,22 @@ public class MainTest {
         Assert.assertEquals("one", radio_result);
         String text = webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]")).getText();
         Assert.assertEquals("Great! Return to menu", text);
-        webDriver.findElement(By.id("back")).click();
+        webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]")).click();
+
+        webDriver.findElement(By.id("select")).click();
+        WebElement heroElement = webDriver.findElement(By.name("hero"));
+        Select heroSelect = new Select(heroElement);
+        heroSelect.selectByIndex(2);
+        WebElement languagesElement = webDriver.findElement(By.name("languages"));
+        Select languagesSelect = new Select(languagesElement);
+        languagesSelect.selectByIndex(3);
+        languagesSelect.selectByIndex(2);
+        languagesSelect.selectByIndex(4);
+
+
 
     }
+
 
     @AfterTest
     public void driverOut() {
