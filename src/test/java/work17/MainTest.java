@@ -1,23 +1,22 @@
 package work17;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class Main {
+public class MainTest {
 
     private WebDriver webDriver;
 
-    @Before
+    @BeforeTest
     public void setup(){
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
@@ -45,24 +44,9 @@ public class Main {
         Assert.assertEquals("Great! Return to menu", text);
         webDriver.findElement(By.id("back")).click();
 
-
-        webDriver.findElement(By.id("select")).click();
-        WebElement heroElement = webDriver.findElement(By.name("hero"));
-        Select heroSelect = new Select(heroElement);
-        heroSelect.selectByIndex(2);
-
-
-        WebElement languagesElement = webDriver.findElement(By.name("languages"));
-        Select languagesSelect = new Select(languagesElement);
-        languagesSelect.selectByIndex(3);
-        languagesSelect.selectByIndex(2);
-        languagesSelect.selectByIndex(4);
-
-
-
     }
 
-    @After
+    @AfterTest
     public void driverOut() {
         webDriver.quit();
     }
