@@ -1,21 +1,22 @@
 package work17;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class Main {
+public class MainTest {
 
     private WebDriver webDriver;
 
-    @Before
+    @BeforeTest
     public void setup(){
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
@@ -45,7 +46,7 @@ public class Main {
 
     }
 
-    @After
+    @AfterTest
     public void driverOut() {
         webDriver.quit();
     }
