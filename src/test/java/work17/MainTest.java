@@ -29,23 +29,22 @@ public class MainTest {
         webDriver.get("https://savkk.github.io/selenium-practice/ ");
         webDriver.findElement(By.id("button")).click();
         webDriver.findElement(By.id("first")).click();
-        String excellent = webDriver.findElement(By.xpath("//label[.=\"Excellent!\"]")).getText();
-        Assert.assertEquals("Excellent!", excellent);
+        String webElementExcellent = webDriver.findElement(By.xpath("//label[.=\"Excellent!\"]")).getText();
+        Assert.assertEquals("Excellent!", webElementExcellent);
         webDriver.findElement(By.className("button-primary")).click();
         webDriver.findElement(By.linkText("Great! Return to menu")).click();
         webDriver.findElement(By.id("checkbox")).click();
         webDriver.findElement(By.id("two")).click();
         webDriver.findElement(By.id("go")).click();
-        String result = webDriver.findElement(By.xpath("//label[.=\" two\"]")).getText();
-        Assert.assertEquals("two", result);
+        String webElementResult = webDriver.findElement(By.xpath("//label[.=\" two\"]")).getText();
+        Assert.assertEquals("two", webElementResult);
         webDriver.findElement(By.id("radio_one")).click();
         webDriver.findElement(By.id("radio_go")).click();
-        String radio_result = webDriver.findElement(By.xpath("//label[.=\"one\"]")).getText();
-        Assert.assertEquals("one", radio_result);
-        String text = webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]")).getText();
-        Assert.assertEquals("Great! Return to menu", text);
-        webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]")).click();
-
+        String webElementRadioResult = webDriver.findElement(By.xpath("//label[.=\"one\"]")).getText();
+        Assert.assertEquals("one", webElementRadioResult);
+        String elementGetText = webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]")).getText();
+        Assert.assertEquals("Great! Return to menu", elementGetText);
+        webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]/a")).click();
         webDriver.findElement(By.id("select")).click();
         WebElement heroElement = webDriver.findElement(By.name("hero"));
         Select heroSelect = new Select(heroElement);
@@ -55,9 +54,10 @@ public class MainTest {
         languagesSelect.selectByIndex(3);
         languagesSelect.selectByIndex(2);
         languagesSelect.selectByIndex(4);
-
-
-
+        webDriver.findElement(By.id("go")).click();
+        String getSelectText = webDriver.findElement(By.xpath("//label[.='C++, C#, Pascal']")).getText();
+        Assert.assertEquals(getSelectText,"C++, C#, Pascal");
+        webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]/a")).click();
     }
 
 
