@@ -57,6 +57,7 @@ public class MainTest {
         String getSelectText = webDriver.findElement(By.xpath("//label[.='C++, C#, Pascal']")).getText();
         Assert.assertEquals(getSelectText,"C++, C#, Pascal");
         webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]/a")).click();
+        webDriver.findElement(By.id("form")).click();
     }
 
 
