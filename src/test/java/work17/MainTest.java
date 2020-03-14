@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
@@ -17,14 +18,14 @@ public class MainTest {
 
     private WebDriver webDriver;
 
-    @BeforeTest
+    @BeforeSuite
     public void setup(){
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
     }
     @Test
     public void savkk() {
-        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         webDriver.get("https://savkk.github.io/selenium-practice/ ");
 //        webDriver.findElement(By.id("button")).click();
 //        webDriver.findElement(By.id("first")).click();
