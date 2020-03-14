@@ -1,8 +1,9 @@
 package work17;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Alert;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,6 +29,8 @@ public class MainTest {
     public void savkk() {
         webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         webDriver.get("https://savkk.github.io/selenium-practice/ ");
+        //строчки выше не коменитровать при запуске 18 задания
+        // Задание 17
 //        webDriver.findElement(By.id("button")).click();
 //        webDriver.findElement(By.id("first")).click();
 //        String webElementExcellent = webDriver.findElement(By.xpath("//label[.=\"Excellent!\"]")).getText();
@@ -86,18 +89,45 @@ public class MainTest {
 
         // 18 задание, начало!
 
-        webDriver.findElement(By.id("alerts")).click();
+//        webDriver.findElement(By.id("alerts")).click();
+//        webDriver.findElement(By.xpath("//button[.='Get password']")).click();
+//        String alertGetPassword = webDriver.switchTo().alert().getText().replaceAll("Your password: ", "");
+//        webDriver.switchTo().alert().accept();
 //        webDriver.findElement(By.xpath("//button[.='Enter password']")).click();
-        webDriver.findElement(By.xpath("//button[.='Get password']")).click();
-        String alertGetPassword = webDriver.switchTo().alert().getText().replaceAll("Your password: ", "");
-        webDriver.switchTo().alert().accept();
-        webDriver.findElement(By.xpath("//button[.='Enter password']")).click();
-        webDriver.switchTo().alert().sendKeys(alertGetPassword);
-        webDriver.switchTo().alert().accept();
-        String textGreat = webDriver.findElement(By.xpath("//label")).getText();
-        Assert.assertEquals(textGreat, "Great!");
-        webDriver.findElement(By.xpath("//button[3]")).click();
+//        webDriver.switchTo().alert().sendKeys(alertGetPassword);
+//        webDriver.switchTo().alert().accept();
+//        String returnTextGreat = webDriver.findElement(By.xpath("//label")).getText();
+//        Assert.assertEquals(returnTextGreat, "Great!");
+//        webDriver.findElement(By.xpath("//button[3]")).click();
+
+        // Конец 18 задания первой части
+
+        //18 Задание, негативный тест. Закоментировать задание выше
+
+//        webDriver.findElement(By.id("alerts")).click();
+//        webDriver.findElement(By.xpath("//button[.='Get password']")).click();
+//        String alertGetPassword = webDriver.switchTo().alert().getText();
+//        webDriver.switchTo().alert().accept();
+//        webDriver.findElement(By.xpath("//button[.='Enter password']")).click();
+//        webDriver.switchTo().alert().sendKeys(alertGetPassword);
+//        webDriver.switchTo().alert().accept();
+//        Assert.assertEquals(isCheckElemeinGreat(),false);
+
+        // Конец 18 задания с негативным тестом
+
+
+
     }
+
+    public boolean isCheckElemeinGreat() {
+        try {
+            webDriver.findElement(By.xpath("//label"));
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
 
 
     @AfterTest
