@@ -58,6 +58,21 @@ public class MainTest {
         Assert.assertEquals(getSelectText,"C++, C#, Pascal");
         webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]/a")).click();
         webDriver.findElement(By.id("form")).click();
+
+
+        WebElement inputFirstName = webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[1]/input"));
+        inputFirstName.sendKeys("Aram");
+        WebElement inputLastName = webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[2]/input"));
+        inputLastName.sendKeys("Хачатурян");
+        WebElement inputEmail = webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[3]/input"));
+        inputEmail.sendKeys("ololo@box.ru");
+        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[4]/input[2]")).click();
+        WebElement inputAddress = webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[5]/input"));
+        inputAddress.sendKeys("ул.Пушкина, дом. Колотушкина где проживают тянки");
+        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[6]/input")).click();
+
+
+
     }
 
 
