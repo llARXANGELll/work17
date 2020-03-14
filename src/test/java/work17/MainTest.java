@@ -126,8 +126,6 @@ public class MainTest {
         webDriver.findElement(By.xpath("//form/div[3]/input")).sendKeys("Наша Раша");
         webDriver.findElement(By.xpath("//input[@value='Add']")).click();
         webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]/a")).click();
-
-
     }
 
     public boolean isCheckElemeinGreat() {
@@ -138,8 +136,6 @@ public class MainTest {
             return false;
         }
     }
-
-
 
     @AfterTest
     public void driverOut() {
