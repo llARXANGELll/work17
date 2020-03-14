@@ -67,7 +67,7 @@ public class MainTest {
 //        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[4]/input[2]")).click();
 //        WebElement inputAddress = webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[5]/input"));
 //        inputAddress.sendKeys("ул.Пушкина, дом. Колотушкина где проживают тянки");
-//        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[6]/input")).sendKeys("C:/Users/Aram/Desktop/Git/work17/.gitignore.");
+//        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[6]/input")).sendKeys("C:/Users/Aram/Desktop/Git/work17/.gitignore.");  //Загружаю файл. Указать относительный путь не получилось, по этому указал полный
 //        WebElement inputTellMe  = webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[7]/textarea"));
 //        inputTellMe.sendKeys("Я изучаю автоматизацию");
 //        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/input")).click();
@@ -85,6 +85,7 @@ public class MainTest {
         // 18 задание, начало!
 
         webDriver.findElement(By.id("alerts")).click();
+        webDriver.findElement(By.xpath("//button[.='Get password']")).click();
 
     }
 
