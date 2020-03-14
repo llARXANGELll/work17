@@ -1,6 +1,7 @@
 package work17;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -86,8 +87,16 @@ public class MainTest {
         // 18 задание, начало!
 
         webDriver.findElement(By.id("alerts")).click();
+//        webDriver.findElement(By.xpath("//button[.='Enter password']")).click();
         webDriver.findElement(By.xpath("//button[.='Get password']")).click();
-
+        String alertGetPassword = webDriver.switchTo().alert().getText().replaceAll("Your password: ", "");
+        webDriver.switchTo().alert().accept();
+        webDriver.findElement(By.xpath("//button[.='Enter password']")).click();
+        webDriver.switchTo().alert().sendKeys(alertGetPassword);
+        webDriver.switchTo().alert().accept();
+        String textGreat = webDriver.findElement(By.xpath("//label")).getText();
+        Assert.assertEquals(textGreat, "Great!");
+        webDriver.findElement(By.xpath("//button[3]")).click();
     }
 
 
