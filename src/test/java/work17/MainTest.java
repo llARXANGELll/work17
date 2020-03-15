@@ -87,7 +87,7 @@ public class MainTest {
     }
 
     @Test(enabled = false)
-    public void sestWork18Task2() {
+    public void sestWork18Task1() {
         webDriver.findElement(By.id("alerts")).click();
         webDriver.findElement(By.xpath("//button[.='Get password']")).click();
         String alertGetPassword = webDriver.switchTo().alert().getText().replaceAll("Your password: ", "");
@@ -102,7 +102,7 @@ public class MainTest {
     // Конец 18 задания первой части
     //18 Задание, негативный тест. Закоментировать задание выше
     @Test(enabled = false)
-    public void testWork18TaskNegativeTest() {
+    public void testWork18Task2IsNegativeTest() {
         webDriver.findElement(By.id("alerts")).click();
         webDriver.findElement(By.xpath("//button[.='Get password']")).click();
         String alertGetPassword = webDriver.switchTo().alert().getText();
