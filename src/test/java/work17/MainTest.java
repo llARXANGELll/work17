@@ -1,10 +1,7 @@
 package work17;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -12,6 +9,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import java.util.Arrays;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 
@@ -27,7 +26,7 @@ public class MainTest {
         webDriver.get("https://savkk.github.io/selenium-practice/ ");
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void testWork17() {
         // Задание 17
         webDriver.findElement(By.id("button")).click();
@@ -84,6 +83,17 @@ public class MainTest {
         webDriver.findElement(By.xpath("//input[@name='code']")).sendKeys(textCode);
         webDriver.findElement(By.xpath("//input[@name='ok']")).click();
         webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]/a")).click();
+        // Выполняю дз 19, проверяю куки
+        Cookie checkCookieButton = webDriver.manage().getCookieNamed("button");
+        Assert.assertEquals(checkCookieButton.getValue(),"done");
+        Cookie checkCookieCheckbox = webDriver.manage().getCookieNamed("checkboxes");
+        Assert.assertEquals(checkCookieCheckbox.getValue(),"done");
+        Cookie checkCookieForm = webDriver.manage().getCookieNamed("form");
+        Assert.assertEquals(checkCookieForm.getValue(),"done");
+        Cookie checkCookieIframe = webDriver.manage().getCookieNamed("iframe");
+        Assert.assertEquals(checkCookieIframe.getValue(),"done");
+        Cookie checkCookieSelect = webDriver.manage().getCookieNamed("select");
+        Assert.assertEquals(checkCookieSelect.getValue(),"done");
     }
 
     @Test(enabled = false)
@@ -98,9 +108,13 @@ public class MainTest {
         String returnTextGreat = webDriver.findElement(By.xpath("//label")).getText();
         Assert.assertEquals(returnTextGreat, "Great!");
         webDriver.findElement(By.xpath("//button[3]")).click();
+        webDriver.switchTo().alert().accept();
+        // Выполняю дз 19, проверяю куки
+        Cookie checkCookieAlerts = webDriver.manage().getCookieNamed("alerts");
+        Assert.assertEquals(checkCookieAlerts.getValue(),"done");
     }
     // Конец 18 задания первой части
-    //18 Задание, негативный тест. Закоментировать задание выше
+    //18 Задание, негативный тест
     @Test(enabled = false)
     public void testWork18Task2IsNegativeTest() {
         webDriver.findElement(By.id("alerts")).click();
@@ -114,7 +128,7 @@ public class MainTest {
     }
     // Конец 18 задания с негативным тестом
     // Задание 18, третья часть
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void testWork18Task3() {
         webDriver.findElement(By.id("table")).click();
         webDriver.findElement(By.xpath("//tbody/tr[4]/td/input")).click();
@@ -125,6 +139,9 @@ public class MainTest {
         webDriver.findElement(By.xpath("//form/div[3]/input")).sendKeys("Наша Раша");
         webDriver.findElement(By.xpath("//input[@value='Add']")).click();
         webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]/a")).click();
+        // Выполняю дз 19, проверяю куки
+        Cookie checkCookieTable = webDriver.manage().getCookieNamed("table");
+        Assert.assertEquals(checkCookieTable.getValue(),"done");
     }
 
     public boolean isCheckElemeinGreat() {
