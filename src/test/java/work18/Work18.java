@@ -39,9 +39,6 @@ public class Work18 {
         Assert.assertEquals(returnTextGreat, "Great!");
         webDriver.findElement(By.xpath("//button[3]")).click();
         webDriver.switchTo().alert().accept();
-        // Выполняю дз 19, проверяю куки
-        Cookie checkCookieAlerts = webDriver.manage().getCookieNamed("alerts");
-        Assert.assertEquals(checkCookieAlerts.getValue(),"done");
     }
 
     @Test(enabled = true)
@@ -68,9 +65,6 @@ public class Work18 {
         webDriver.findElement(By.xpath("//form/div[3]/input")).sendKeys("Наша Раша");
         webDriver.findElement(By.xpath("//input[@value='Add']")).click();
         webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]/a")).click();
-        // Выполняю дз 19, проверяю куки
-        Cookie checkCookieTable = webDriver.manage().getCookieNamed("table");
-        Assert.assertEquals(checkCookieTable.getValue(),"done");
     }
 
 
