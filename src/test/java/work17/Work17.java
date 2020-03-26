@@ -28,7 +28,6 @@ public class Work17 {
 
     @Test(enabled = true)
     public void testWork17() {
-        // Задание 17
         webDriver.findElement(By.id("button")).click();
         webDriver.findElement(By.id("first")).click();
         String webElementExcellent = webDriver.findElement(By.xpath("//label[.=\"Excellent!\"]")).getText();
@@ -124,6 +123,7 @@ public class Work17 {
         webDriver.findElement(By.xpath("//button[.='Enter password']")).click();
         webDriver.switchTo().alert().sendKeys(alertGetPassword);
         webDriver.switchTo().alert().accept();
+
         Assert.assertEquals(isCheckElemeinGreat(), false);
     }
     // Конец 18 задания с негативным тестом
