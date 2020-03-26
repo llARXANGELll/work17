@@ -115,7 +115,7 @@ public class MainTest {
     }
     // Конец 18 задания первой части
     //18 Задание, негативный тест
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void testWork18Task2IsNegativeTest() {
         webDriver.findElement(By.id("alerts")).click();
         webDriver.findElement(By.xpath("//button[.='Get password']")).click();
@@ -143,6 +143,8 @@ public class MainTest {
         Cookie checkCookieTable = webDriver.manage().getCookieNamed("table");
         Assert.assertEquals(checkCookieTable.getValue(),"done");
     }
+
+    //
 
     public boolean isCheckElemeinGreat() {
         try {
