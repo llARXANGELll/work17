@@ -57,6 +57,23 @@ public class Work18 {
         Assert.assertEquals(labels.size(), 0);
     }
 
+    @Test(enabled = false)
+    public void testWork18Task3() {
+        webDriver.findElement(By.id("table")).click();
+        webDriver.findElement(By.xpath("//tbody/tr[4]/td/input")).click();
+        webDriver.findElement(By.xpath("//tbody/tr[5]/td/input")).click();
+        webDriver.findElement(By.xpath("//input[@value='Delete']")).click();
+        webDriver.findElement(By.xpath("//form/div[1]/input")).sendKeys("sdsd");
+        webDriver.findElement(By.xpath("//form/div[2]/input")).sendKeys("нет контакта");
+        webDriver.findElement(By.xpath("//form/div[3]/input")).sendKeys("Наша Раша");
+        webDriver.findElement(By.xpath("//input[@value='Add']")).click();
+        webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]/a")).click();
+        // Выполняю дз 19, проверяю куки
+        Cookie checkCookieTable = webDriver.manage().getCookieNamed("table");
+        Assert.assertEquals(checkCookieTable.getValue(),"done");
+    }
+
+
     @AfterTest
     public void driverOut() {
         webDriver.quit();
