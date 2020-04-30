@@ -75,7 +75,7 @@ public class Work19 {
 //        URL testFilePath = Thread.currentThread().getContextClassLoader().getResource("suite/work19.xml");
 //        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[6]/input")).sendKeys(testFilePath.getPath()); //отностительный адресс, но у меня не работает
 
-        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[6]/input")).sendKeys("C:/Users/OUT-Khachaturyan-AA/Desktop/Git/work17/.gitignore");  //Загружаю файл. Указать относительный путь не получилось, по этому указал полный
+        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[6]/input")).sendKeys("C:/Users/Aram/Desktop/Git/work17/.gitignore");  //Загружаю файл. Указать относительный путь не получилось, по этому указал полный
         WebElement inputTellMe = webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[7]/textarea"));
         inputTellMe.sendKeys("Я изучаю автоматизацию");
         webDriver.findElement(By.xpath("//form[@id=\"testform\"]/input")).click();
@@ -90,15 +90,15 @@ public class Work19 {
         webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]/a")).click();
         // Выполняю дз 19, проверяю куки
         Cookie checkCookieButton = webDriver.manage().getCookieNamed("button");
-        Assert.assertEquals(checkCookieButton.getValue(),"done");
+        Assert.assertEquals(checkCookieButton.getValue(), "done");
         Cookie checkCookieCheckbox = webDriver.manage().getCookieNamed("checkboxes");
-        Assert.assertEquals(checkCookieCheckbox.getValue(),"done");
+        Assert.assertEquals(checkCookieCheckbox.getValue(), "done");
         Cookie checkCookieForm = webDriver.manage().getCookieNamed("form");
-        Assert.assertEquals(checkCookieForm.getValue(),"done");
+        Assert.assertEquals(checkCookieForm.getValue(), "done");
         Cookie checkCookieIframe = webDriver.manage().getCookieNamed("iframe");
-        Assert.assertEquals(checkCookieIframe.getValue(),"done");
+        Assert.assertEquals(checkCookieIframe.getValue(), "done");
         Cookie checkCookieSelect = webDriver.manage().getCookieNamed("select");
-        Assert.assertEquals(checkCookieSelect.getValue(),"done");
+        Assert.assertEquals(checkCookieSelect.getValue(), "done");
     }
 
     @Test(enabled = true)
@@ -116,7 +116,7 @@ public class Work19 {
         webDriver.switchTo().alert().accept();
         // Выполняю дз 19, проверяю куки
         Cookie checkCookieAlerts = webDriver.manage().getCookieNamed("alerts");
-        Assert.assertEquals(checkCookieAlerts.getValue(),"done");
+        Assert.assertEquals(checkCookieAlerts.getValue(), "done");
     }
 
     @Test(enabled = true)
@@ -132,7 +132,7 @@ public class Work19 {
         webDriver.findElement(By.xpath("//label[.=\"Great! Return to menu\"]/a")).click();
         // Выполняю дз 19, проверяю куки
         Cookie checkCookieTable = webDriver.manage().getCookieNamed("table");
-        Assert.assertEquals(checkCookieTable.getValue(),"done");
+        Assert.assertEquals(checkCookieTable.getValue(), "done");
     }
 
 
