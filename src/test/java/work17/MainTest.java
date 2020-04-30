@@ -7,10 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import java.util.Arrays;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 
@@ -56,7 +53,7 @@ public class MainTest {
 //        URL testFilePath = Thread.currentThread().getContextClassLoader().getResource("suite/work19.xml");
 //        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[6]/input")).sendKeys(testFilePath.getPath()); //отностительный адресс, но у меня не работает
 
-        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[6]/input")).sendKeys("C:/Users/OUT-Khachaturyan-AA/Desktop/Git/work17/.gitignore");  //Загружаю файл. Указать относительный путь не получилось, по этому указал полный
+        webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[6]/input")).sendKeys("C:/Users/Aram/Desktop/Git/work17/.gitignore");  //Загружаю файл. Указать относительный путь не получилось, по этому указал полный
 
         WebElement inputTellMe = webDriver.findElement(By.xpath("//form[@id=\"testform\"]/div[7]/textarea"));
         inputTellMe.sendKeys("Я изучаю автоматизацию");
